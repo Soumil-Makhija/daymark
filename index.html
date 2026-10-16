@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f3ed">
+  <meta name="description" content="Make room for what matters. Daymark is a simple, private task manager with saved tasks, progress tracking, and a calm design.">
+  <title>Daymark — one thing at a time.</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./src/style.css">
+  <script type="module" src="./src/app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to tasks</a>
+  <aside class="sidebar">
+    <a class="brand" href="./"><span class="brand-symbol" aria-hidden="true">✓</span>daymark<span class="brand-dot">.</span></a>
+    <p class="workspace-label">YOUR PERSONAL SPACE</p>
+    <div class="workspace"><span aria-hidden="true">▤</span><span>My tasks</span><span class="workspace-dot" aria-hidden="true"></span></div>
+    <div class="sidebar-bottom"><div class="sun" aria-hidden="true"><svg viewBox="0 0 180 140" fill="none"><path d="M25 109h130M40 109a50 50 0 0 1 100 0" stroke="currentColor" stroke-width="2"/><path d="M90 42V24m-41 35L36 46m95 13 13-13M30 90l-17-5m137 5 17-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M63 109a27 27 0 0 1 54 0" stroke="currentColor" stroke-width="1.5"/></svg></div><p>A little focus.<br>A little forward.</p><span>One thing at a time.</span></div>
+  </aside>
+  <div class="page">
+    <header class="topbar"><span>MY WORKSPACE <span aria-hidden="true">/</span> <strong>Overview</strong></span><time id="date"></time></header>
+    <main id="main">
+      <section class="intro"><p class="eyebrow">LESS NOISE. MORE MOMENTUM.</p><h1>Make room for<br><em>what matters.</em></h1><p>Your thoughts, a little more organized.<br class="mobile-break"> Start with one small task.</p><span class="intro-spark" aria-hidden="true">✳</span></section>
+      <section class="summary" aria-label="Task overview"><div><span class="stat-icon warm" aria-hidden="true">▤</span><div><span class="stat-number" id="total-count">0</span><span class="stat-label">Total tasks</span></div></div><div><span class="stat-icon blue" aria-hidden="true">◷</span><div><span class="stat-number" id="active-count">0</span><span class="stat-label">In progress</span></div></div><div><span class="stat-icon green" aria-hidden="true">✓</span><div><span class="stat-number" id="completed-count">0</span><span class="stat-label">Completed</span></div></div></section>
+      <section class="task-section" aria-labelledby="tasks-title">
+        <div class="section-title"><h2 id="tasks-title">Your task list<span>.</span></h2><span id="save-status" class="save-status"><span aria-hidden="true">●</span> Saved in this browser</span></div>
+        <form id="add-form" class="add-form"><label class="sr-only" for="task-input">New task</label><span class="input-plus" aria-hidden="true">＋</span><input id="task-input" name="task" type="text" placeholder="What would you like to get done?" maxlength="180" autocomplete="off" required aria-describedby="input-help"><button type="submit">Add task <span aria-hidden="true">↗</span></button></form>
+        <p id="input-help" class="input-help">Keep it simple. Press Enter to add a task.</p>
+        <p id="warning" class="warning" role="alert" hidden></p>
+        <div class="list-toolbar"><fieldset id="filters"><legend class="sr-only">Filter tasks</legend><label><input type="radio" name="filter" value="all" checked><span>All tasks <b id="all-badge">0</b></span></label><label><input type="radio" name="filter" value="active"><span>Active</span></label><label><input type="radio" name="filter" value="completed"><span>Completed</span></label></fieldset><span class="list-hint">Small steps count.</span></div>
+        <ul id="task-list" class="task-list" aria-label="Tasks"></ul>
+        <div id="empty-state" class="empty-state"><div class="empty-illustration" aria-hidden="true"><span>✓</span><i>✦</i></div><h3 id="empty-title">A clear space. A fresh start.</h3><p id="empty-copy">Add your first task above.<br>Big plans begin with one small step.</p></div>
+        <div id="progress-section" class="progress-section" hidden><div><span id="progress-label"></span><span id="progress-percent"></span></div><progress id="progress" max="100" value="0" aria-label="Task completion"></progress><p id="progress-note"></p></div>
+      </section>
+      <div class="undo-bar" id="undo-bar" hidden><span id="undo-copy"></span><button id="undo" type="button">Undo <span aria-hidden="true">↶</span></button></div>
+      <footer><span>Built for a clearer head.</span><span>Just you and your next step. <span aria-hidden="true">✳</span></span></footer>
+    </main>
+  </div>
+  <div id="announcement" class="sr-only" role="status" aria-live="polite"></div>
+</body>
+</html>

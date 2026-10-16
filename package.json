@@ -1,0 +1,14 @@
+{
+  "name": "daymark",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A calm, accessible task manager with local browser storage.",
+  "scripts": {
+    "start": "node scripts/serve.mjs",
+    "test": "node --test tests/core.test.mjs",
+    "test:e2e": "playwright test"
+  },
+  "engines": { "node": ">=22" },
+  "devDependencies": { "@playwright/test": "^1.64.1" }
+}
